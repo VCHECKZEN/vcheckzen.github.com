@@ -10,15 +10,15 @@
   a:visited {
     color: #FFF;
     text-decoration: none;
-    
+
   }
-  
+
   a:hover,
   a:active {
     color: #FF80AB;
     text-decoration: none;
   }
-  
+
   .center {
     position: absolute;
     top: 50%;
@@ -27,14 +27,14 @@
     font-size: 500%;
     z-index: 9999;
   }
-  
+
   body {
     color: #FFF;
     font-weight: bold;
     overflow: hidden;
     margin: 0;
   }
-  
+
   </style>
   <script>
   function drawBackground() {
@@ -55,12 +55,12 @@
     };
     setInterval(draw, 33);
   }
-  
+
   function addZero(obj) {
     if ((obj + '').length == 1) return '0' + obj
     else return obj
   }
-  
+
   function getTime() {
     var now = new Date()
     var year = now.getFullYear()
@@ -69,23 +69,23 @@
     var hour = now.getHours()
     var minute = now.getMinutes()
     var second = now.getSeconds()
-    
+
     return year + '.' +
     addZero(month) + '.' +
     addZero(day) + ' ' +
     addZero(hour) + ':' +
     addZero(minute)
   }
-  
+
   function switch2SuccessState(obj) {
     $(obj).html('&#10003')
     $(obj).css('color', '#0F0')
   }
-  
+
   function setClock() {
     $('#clock').html( new Date().toUTCString() )
   }
-  
+
   function setData() {
     $.ajax({
       type: 'POST',
@@ -124,16 +124,16 @@
 
 <body id="content" hidden="true" onload="setData()">
   <div id='time'>
-    <a id="clock" href="//vcheckzen.github.io/post/phone/m3note/clock"></a>
+    <a id="clock" href="//vcheckzen.github.io/customized/common/clock"></a>
     <span> &copy; </span>
     <a href="//jq.qq.com/?_wv=1027&k=5oejoia">MEIZU M3NOTE GROUP</a>
   </div>
   <div class="center">
-    
+
     <table name="serverLive">
       <tr>
         <td>
-          <a href="//vcheckzen.github.io/post/phone/m3note/clock" id="timeofcheck"></a>
+          <a href="//vcheckzen.github.io/customized/common/clock" id="timeofcheck"></a>
         </td>
       </tr>
       <tr name="serverError" hidden="true">

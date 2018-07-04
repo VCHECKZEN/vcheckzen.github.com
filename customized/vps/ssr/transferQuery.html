@@ -3,9 +3,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Transfer Query System</title>
 	<link rel="icon" href="//img.alicdn.com/tps/TB1HwXxLpXXXXchapXXXXXXXXXX-32-32.ico"  type="image/x-icon">
-	<script src="layui.js"></script>
+	<script src="//vcheckzen.github.io/customized/layui/layui.js"></script>
 	<script src='//alinw.alicdn.com/platform/c/jquery/1.11.3/dist/jquery.min.js'></script>
-	
+
 	<script>
 	function disableInput(obj) {
 		$(":input").each(function () {
@@ -15,7 +15,7 @@
 			$(this).attr("disabled", obj);
 		});
 	}
-	
+
 	function transferQuery() {
 		var username = $("#username")[0];
 		var port = $("#port")[0];
@@ -58,7 +58,7 @@
 // 						layer.tips('Hi, ' + username + '! Since Clean Happens on 22 Monthly, Use Your Transfer Properly.', '#message');
 						layer.tips('Hi, ' + username + '! Since Clean Happens on 22 Monthly, Use Your Transfer Properly.', '#message', {
   							tips: 3,
-							time: 5000 
+							time: 5000
 						});
 					});
 				}
