@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Server Status</title>
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+  <link rel="icon" href="//img.alicdn.com/tps/TB1HwXxLpXXXXchapXXXXXXXXXX-32-32.ico"  type="image/x-icon">
+  <style>
+  a:link,
+  a:visited {
+    color: #FFF;
+    text-decoration: none;
+    
+  }
+  
+  a:hover,
+  a:active {
+    color: #FF80AB;
+    text-decoration: none;
+  }
+  
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 500%;
+    z-index: 9999;
+  }
+  
+  body {
+    color: #FFF;
+    font-weight: bold;
+    overflow: hidden;
+    margin: 0;
+  }
+  
+  </style>
+  <script>
+  function drawBackground() {
+    var width = q.width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    var height = q.height = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+    var letters = Array(256).join(1).split('');
+    var draw = function () {
+      q.getContext('2d').fillStyle = 'rgba(0,0,0,0.05)';
+      q.getContext('2d').fillRect(0, 0, width, height);
+      q.getContext('2d').fillStyle = '#0F0';
+      letters.map(function (y_pos, index) {
+        text = String.fromCharCode(34 + Math.random() * 33);
+        x_pos = index * 10;
+        q.getContext('2d').fillText(text, x_pos, y_pos);
+        letters[index] = (y_pos > 758 + Math.random() * 1e4) ? 0 : y_pos + 10;
+        q.getContext('2d').fillStyle = '#0F0';
+      });
+    };
+    setInterval(draw, 33);
+  }
+  
+  function addZero(obj) {
+    if ((obj + '').length == 1) return '0' + obj
+    else return obj
+  }
+  
+  function getTime() {
+    var now = new Date()
+    var year = now.getFullYear()
+    var month = now.getMonth() + 1
+    var day = now.getDate()
+    var hour = now.getHours()
+    var minute = now.getMinutes()
+    var second = now.getSeconds()
+    
+    return year + '.' +
+    addZero(month) + '.' +
+    addZero(day) + ' ' +
+    addZero(hour) + ':' +
+    addZero(minute)
+  }
+  
+  function switch2SuccessState(obj) {
+    $(obj).html('&#10003')
+    $(obj).css('color', '#0F0')
+  }
+  
+  function setClock() {
+    $('#clock').html( new Date().toUTCString() )
+  }
+  
+  function setData() {
+    $.ajax({
+      type: 'POST',
+      dataType: "json",
+      url: "//vps.vcheckzen.top/m3note/serverStatus",
+      beforeSend: function () {
+        setClock()
+        $('#timeofcheck').html(getTime())
+        drawBackground()
+        setInterval("setClock()", 1000)
+      },
+      success: function (data) {
+        if (data['sp'] == 1) {
+          switch2SuccessState('#sp')
+        }
+        if (data['bl'] == 1) {
+          switch2SuccessState('#bl')
+        }
+      },
+      error: function () {
+        $("tr[name='serverError']").attr("hidden", false)
+        $("tr[name='serverLive']").attr("hidden", true)
+        $("#time").css("font-size", "150%")
+        $("#content").css("font-size", "67%")
+        $("#content").css("color", "#F00")
+        $("a").css("color", "#F00")
+      },
+      complete: function () {
+        $("#content").css("background-color", "#000")
+        $("#content").attr("hidden", false)
+      }
+    })
+  }
+  </script>
+</head>
+
+<body id="content" hidden="true" onload="setData()">
+  <div id='time'>
+    <a id="clock" href="//vcheckzen.github.io/post/phone/m3note/clock"></a>
+    <span> &copy; </span>
+    <a href="//jq.qq.com/?_wv=1027&k=5oejoia">MEIZU M3NOTE GROUP</a>
+  </div>
+  <div class="center">
+    
+    <table name="serverLive">
+      <tr>
+        <td>
+          <a href="//vcheckzen.github.io/post/phone/m3note/clock" id="timeofcheck"></a>
+        </td>
+      </tr>
+      <tr name="serverError" hidden="true">
+        <td>
+          <span  style="color:#F00">UNKOWN ERROR</span>
+        </td>
+        <td>
+          <span  style="color:#F00"></span>
+        </td>
+      </tr>
+      <tr name="serverLive">
+        <td>
+          <a href="//www.jianshu.com/p/e8fec782f64f">SpFlashToolServer</a>
+        </td>
+        <td>
+          <span id="sp" style="color:#F00">&#10007;</span>
+        </td>
+      </tr>
+      <tr name="serverLive">
+        <td>
+          <a href="//www.jianshu.com/p/b27d5bed52e7">UnlockBLServer</a>
+        </td>
+        <td>
+          <span id="bl" style="color:#F00">&#10007;</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <canvas id="q"></canvas>
+</body>
+</html>
