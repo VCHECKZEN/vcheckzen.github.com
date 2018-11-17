@@ -73,12 +73,12 @@
         var icon = new Image();
         var qr = new Image();
         icon.onload = function(){
-            document.getElementById("titleIcon").setAttribute("src", titleIcon.src);
+            document.getElementById("titleIcon").setAttribute("src", icon.src);
             document.getElementById("titleText").innerHTML = name;
         };
         icon.src = titleIcon;
         qr.onload = function(){
-            document.getElementById("qrImg").setAttribute("src", qrImg.src);
+            document.getElementById("qrImg").setAttribute("src", qr.src);
             document.getElementById("qrText").innerHTML = qrText;
         };
         qr.src = qrImg;
