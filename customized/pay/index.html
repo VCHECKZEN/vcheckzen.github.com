@@ -75,17 +75,23 @@
         icon.onload = function(){
             document.getElementById("titleIcon").setAttribute("src", icon.src);
             document.getElementById("titleText").innerHTML = name;
+            show();
         };
         icon.src = titleIcon;
         qr.onload = function(){
             document.getElementById("qrImg").setAttribute("src", qr.src);
             document.getElementById("qrText").innerHTML = qrText;
+            show();
         };
         qr.src = qrImg;
         if(type != "other") qrText = setting.payText;
         var body = document.body;
         body.setAttribute("class", type);
-        if(type != "alipay" && icon.complete && qr.complete) body.removeAttribute("hidden");
+        function show() {
+            if(type != "alipay" && icon.complete && qr.complete) { 
+                body.removeAttribute("hidden"); 
+            }
+        }
     </script>
 </body>
 </html>
