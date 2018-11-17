@@ -28,9 +28,9 @@
             wxIcon: staticImgPath + "icon/wx.webp",
             otherIcon: staticImgPath + "icon/other.webp",
 
-            wxpayQr: staticImgPath + "qrcode/wxpay.webp",
-            qqpayQr: staticImgPath + "qrcode/qqpay.webp",
-            otherQr: staticImgPath + "qrcode/other.webp",
+            wxpayQrcode: staticImgPath + "qrcode/wxpay.webp",
+            qqpayQrcode: staticImgPath + "qrcode/qqpay.webp",
+            otherQrcode: staticImgPath + "qrcode/other.webp",
             alipayUrl: "HTTPS://QR.ALIPAY.COM/FKX09613RWE3ROTNTVR362",
 
             qqpayTitle: "QQ 钱包",
@@ -44,47 +44,54 @@
 </head>
 <body hidden="hidden">
     <div class="container">
-        <div class="title"><img id="titleIcon" width="48px" height="48px"><h1 id="titleText"></h1></div>
-        <div class="content"><img id="qrImg"><h3 id="qrText"></h3></div>
+       <div class="title" id="icon"></div>
+        <div class="content" id="qrcode"></div>
     </div>
     <script>
         var ua = setting.ua;
         var type = "other";
-        var name = setting.otherTitle;
-        var titleIcon = setting.otherIcon;
-        var qrImg = setting.otherQr;
-        var qrText = setting.otherText;
+        var title = setting.otherTitle;
+        var iconUrl = setting.otherIcon;
+        var qrcodeUrl = setting.otherQr;
+        var payText = setting.otherText;
+
         if(ua.match(/Alipay/i)) {
             type = "alipay";
-            name = setting.alipayTitle;
+            title = setting.alipayTitle;
             self.location = setting.alipayUrl;
         } else if(ua.match(/MicroMessenger\//i)) {
             type = "wepay";
-            name = setting.wxpayTitle;
-            titleIcon = setting.wxIcon;
-            qrImg = setting.wxpayQr;
+            title = setting.wxpayTitle;
+            iconUrl = setting.wxIcon;
+            qrcodeUrl = setting.wxpayQrcode;
         } else if(ua.match(/QQ\//i)) {
             type = "qq";
-            name = setting.qqpayTitle;
-            titleIcon = setting.qqIcon;
-            qrImg = setting.qqpayQr;
+            title = setting.qqpayTitle;
+            iconUrl = setting.qqIcon;
+            qrcodeUrl = setting.qqpayQrcode;
         }
-        document.title = name;
+        document.title = title;
+        if(type != "other") payText = setting.payText;
+        var iconText = document.createElement("h1");
+        iconText.innerHTML = title;
+        var qrcodeText = document.createElement("h3");
+        qrcodeText.innerHTML = payText;
         var icon = new Image();
-        var qr = new Image();
+        var qrcode = new Image();
         icon.onload = function(){
-            document.getElementById("titleIcon").setAttribute("src", icon.src);
-            document.getElementById("titleText").innerHTML = name;
+            document.getElementById("icon").appendChild(icon);
+            document.getElementById("icon").appendChild(iconText);
             show();
         };
-        icon.src = titleIcon;
-        qr.onload = function(){
-            document.getElementById("qrImg").setAttribute("src", qr.src);
-            document.getElementById("qrText").innerHTML = qrText;
+        icon.src = iconUrl;
+        icon.width = "48px";
+        icon.height = icon.width;
+        qrcode.onload = function(){
+            document.getElementById("qrcode").appendChild(qrcode);
+            document.getElementById("qrcode").appendChild(qrcodeText);
             show();
         };
-        qr.src = qrImg;
-        if(type != "other") qrText = setting.payText;
+        qrcode.src = qrcodeUrl;
         var body = document.body;
         body.setAttribute("class", type);
         function show() {
