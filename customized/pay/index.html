@@ -76,17 +76,17 @@
         var iconText = document.createElement("h1");
         iconText.innerHTML = title;
 
+        var icon = new Image();
+        icon.onload = function() { imgLoaded("icon", icon, iconText); }
+        icon.src = iconUrl;
+        icon.width = 70;
+        icon.height = icon.width;
+
         var qrcodeText = document.createElement("h3");
         qrcodeText.innerHTML = payText;
 
-        var icon = new Image();
-        icon.onload = imgLoaded("icon", icon, iconText);
-        icon.src = iconUrl;
-        icon.width = 80;
-        icon.height = icon.width;
-
         var qrcode = new Image();
-        qrcode.onload = imgLoaded("qrcode", qrcode, qrcodeText);
+        qrcode.onload = function() { imgLoaded("qrcode", qrcode, qrcodeText); }
         qrcode.src = qrcodeUrl;
 
         var body = document.body;
