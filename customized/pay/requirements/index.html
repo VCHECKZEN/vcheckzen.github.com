@@ -105,11 +105,22 @@
         function geQrcode(fileName, value) {
             var virtualDiv = document.createElement("div");
             var qrcode = new QRCode(virtualDiv, {
-                width: 300,
-                height: 300
+                width: 260,
+                height: 260
             });
             qrcode.makeCode(value);
-            virtualDiv.getElementsByTagName("canvas")[0].toBlob(function (blob) { downloadFile(fileName, blob); }, "image/webp", 0.01);
+            var img = new Image();
+            img.onload = function () {
+                var canvas = document.createElement("canvas");
+                canvas.width = 300;
+                canvas.height = 300;
+                ctx = canvas.getContext('2d');
+                ctx.fillStyle="#FFF";
+                ctx.fillRect(0,0,300,300);
+                ctx.drawImage(img, 0, 0, 260, 260, 20, 20, 260, 260);
+                canvas.toBlob(function (blob) { downloadFile(fileName, blob); }, "image/webp", 0.01);
+            };
+            img.src = virtualDiv.getElementsByTagName("canvas")[0].toDataURL("image/webp", 0.01);
         }
         function deQrcode(key, src) {
             var image = new Image();
