@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="https://img.alicdn.com/tps/TB1HwXxLpXXXXchapXXXXXXXXXX-32-32.ico" type="image/x-icon">
+    <title>PASS PANEL</title>
+    <style>
+        body {
+            width: 380px;
+            margin: auto;
+            padding: 1%
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+    <script>
+        function copy(id) {
+            var value = ''
+            switch (id) {
+                case 'username':
+                    value = 'aGVsbG8=';
+                    break;
+                default:
+                    value = 'NjM0MjNkYTdkODg4MmRmZTcxZmM=';
+                    break;
+            }
+            var input = document.getElementById(id);
+            var origin = input.value;
+            input.value = window.atob(value);
+            input.select();
+            document.execCommand("Copy", false, null);
+            input.value = origin;
+        }
+    </script>
+</head>
+
+<body>
+
+    <table>
+        <tr>
+            <td>USERNAME:</td>
+            <td><input id="username" value="5cf53fc0-f64e-435e-8621-6210ded24cf8"></input></td>
+            <td><button style="width:125px" onclick="copy('username')">复制</button></td>
+        </tr>
+        <tr>
+            <td>PASSWORD:</td>
+            <td><input id="passwd" value="2b626e1b-ebd2-4e92-9673-68c683433e43"></input></td>
+            <td><button style="width:125px" onclick="copy('passwd')">复制</button></td>
+        </tr>
+    </table>
+</body>
+
+</html>
