@@ -22,7 +22,7 @@
     </style>
     <script>
         function copy(id) {
-            var value = ''
+            var value = '';
             switch (id) {
                 case 'server':
                     value = 'dmVyd2Vsa3RlLmFpd2FyLnR3';
@@ -35,11 +35,10 @@
                     break;
             }
             var input = document.getElementById(id);
-            var origin = input.value;
             input.value = window.atob(value);
             input.select();
             document.execCommand("Copy", false, null);
-            input.value = origin;
+            input.value = '';
         }
 
         function connect() {
@@ -61,7 +60,8 @@
     <h4>TG 趣闻</h4>
     <p><a target="_blank" href="http://www.sohu.com/a/228954527_100053377">被普京封杀的叛逆黑客：Telegram 创始人杜罗夫</a></p>
     <p><a target="_blank" href="http://www.tmtpost.com/1443098.html">Telegram 传奇：一个关于俄罗斯富豪、黑客、极权和阴谋的创业故事</a></p>
-    <h4>1. <a href="https://api-logi.us-south.cf.appdomain.cloud/?url=https://www.lanzous.com/i3clqna&type=down&pwd=gyp1">下载（稍等，勿重复点击）</a>安装并打开
+    <h4>1. <a
+            href="https://api-logi.us-south.cf.appdomain.cloud/?url=https://www.lanzous.com/i3clqna&type=down&pwd=gyp1">下载（稍等，勿重复点击）</a>安装并打开
         Telegram</h4>
     <img src="https://ws3.sinaimg.cn/large/005BYqpgly1g0udmuyyh1j30u01o04dz.jpg">
     <h4>2. 点击 “START MESSAGING” 即 “开始聊天” 进行注册</h4>
@@ -74,19 +74,16 @@
     <a style="font-size: 85%;color: blue" onclick="connect()">可尝试直接唤起 TG，之后点击右下角 CONNECT PROXY</a>
     <table>
         <tr>
-            <td>Server:</td>
-            <td><input id="server" value="5cf53fc0-f64e-435e-8621-6210ded24cf8"></input></td>
-            <td><button style="width:125px" onclick="copy('server')">复制</button></td>
+            <td><input id="server" placeholder="Server: auth.nasa.gov"></input></td>
+            <td><button style="width:180px" onclick="copy('server')">复制</button></td>
         </tr>
         <tr>
-            <td>Port:</td>
-            <td><input id="port" value="2b626e1b-ebd2-4e92-9673-68c683433e43"></input></td>
-            <td><button style="width:125px" onclick="copy('port')">复制</button></td>
+            <td><input id="port" placeholder="Port: 443"></input></td>
+            <td><button style="width:180px" onclick="copy('port')">复制</button></td>
         </tr>
         <tr>
-            <td>Secret:</td>
-            <td><input id="secret" value="de02040d-8dcb-4349-afac-26fbcc35358c"></input></td>
-            <td><button style="width:125px" onclick="copy('secret')">复制</button></td>
+            <td><input id="secret" placeholder="Secret: e9e3e455-5a27-43b6-bcd7-0b3a770caa0c"></input></td>
+            <td><button style="width:180px" onclick="copy('secret')">复制</button></td>
         </tr>
     </table>
     <p></p>

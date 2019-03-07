@@ -4,27 +4,18 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="icon" href="https://img.alicdn.com/tps/TB1HwXxLpXXXXchapXXXXXXXXXX-32-32.ico" type="image/x-icon">
-    <title>PASS PANEL</title>
+    <title>ENTRANCE</title>
     <style>
         body {
             width: 380px;
-            margin: auto;
-            padding: 1%
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        img {
-            width: 100%;
+            padding-top: 50%;
         }
     </style>
     <script>
         function copy(id) {
             var value = ''
             switch (id) {
-                case 'username':
+                case 'account':
                     value = 'aGVsbG8=';
                     break;
                 default:
@@ -42,19 +33,22 @@
 </head>
 
 <body>
-
     <table>
         <tr>
-            <td>USERNAME:</td>
-            <td><input id="username" value="5cf53fc0-f64e-435e-8621-6210ded24cf8"></input></td>
-            <td><button style="width:125px" onclick="copy('username')">复制</button></td>
+            <td><input id="account" style="width:180px; height: 40px;" placeholder="Username: Donald John Trump"></input></td>
+            <td><button style="width:180px; height: 40px;" onclick="copy('account')">复制</button></td>
         </tr>
         <tr>
-            <td>PASSWORD:</td>
-            <td><input id="passwd" value="2b626e1b-ebd2-4e92-9673-68c683433e43"></input></td>
-            <td><button style="width:125px" onclick="copy('passwd')">复制</button></td>
+            <td><input id="passwd" style="width:180px; height: 40px;" placeholder=" Password: 9db67b04-be99-450d-8d9c-a11296b407d9"></input></td>
+            <td><button style="width:180px; height: 40px" onclick="copy('passwd')">复制</button></td>
         </tr>
     </table>
+    <div style="padding-top:5%;">
+        <button style="width:99%;height: 40px;" onclick="window.open('https://disk.ml')">进入 disk.ml</button>
+    </div>
+    <div style="padding-top:5%;">
+        <button style="width:99%;height: 40px;" onclick="window.open('https://etworld.ml')">进入 etworld.ml</button>
+    </div>
 </body>
 
 </html>
