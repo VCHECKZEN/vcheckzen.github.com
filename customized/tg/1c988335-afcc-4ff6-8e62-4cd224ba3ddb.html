@@ -22,8 +22,30 @@
     </style>
     <script>
         function copy(id) {
-            document.getElementById(id).select();
-            document.execCommand("Copy");
+            var value = ''
+            switch (id) {
+                case 'server':
+                    value = 'dmVyd2Vsa3RlLmFpd2FyLnR3';
+                    break;
+                case 'port':
+                    value = 'MTAwMDI=';
+                    break;
+                default:
+                    value = 'ZGQzOGJmZWY4ZWIwMDE1OTEwYzNjOGUwZWJiNTBjNTg1OQ==';
+                    break;
+            }
+            var input = document.getElementById(id);
+            var origin = input.value;
+            input.value = window.atob(value);
+            input.select();
+            document.execCommand("Copy", false, null);
+            input.value = origin;
+        }
+
+        function connect() {
+            self.location = window.atob(
+                "dGc6Ly9wcm94eT9zZXJ2ZXI9dmVyd2Vsa3RlLmFpd2FyLnR3JnBvcnQ9MTAwMDImc2VjcmV0PWIwY2JjZWY1YTQ4NmQ5ZjM2NDcyYWNhN2Y4ZTExYTlk"
+            );
         }
     </script>
 </head>
@@ -39,7 +61,8 @@
     <h4>TG 趣闻</h4>
     <p><a target="_blank" href="http://www.sohu.com/a/228954527_100053377">被普京封杀的叛逆黑客：Telegram 创始人杜罗夫</a></p>
     <p><a target="_blank" href="http://www.tmtpost.com/1443098.html">Telegram 传奇：一个关于俄罗斯富豪、黑客、极权和阴谋的创业故事</a></p>
-    <h4>1. <a href="https://api-logi.us-south.cf.appdomain.cloud/?url=https://www.lanzous.com/i3clqna&type=down&pwd=gyp1">下载</a>、安装并打开 Telegram</h4>
+    <h4>1. <a href="https://api-logi.us-south.cf.appdomain.cloud/?url=https://www.lanzous.com/i3clqna&type=down&pwd=gyp1">下载</a>、安装并打开
+        Telegram</h4>
     <img src="https://ws3.sinaimg.cn/large/005BYqpgly1g0udmuyyh1j30u01o04dz.jpg">
     <h4>2. 点击 “START MESSAGING” 即 “开始聊天” 进行注册</h4>
     <img src="https://ws3.sinaimg.cn/large/005BYqpgly1g0udw9b426j30u01o0gm2.jpg">
@@ -48,21 +71,22 @@
     <h4>4. 点击 “Add Proxy” 即 “添加代理”, 添加代理服务器</h4>
     <img src="https://ws3.sinaimg.cn/large/005BYqpgly1g0udxelb59j30u01o0jrp.jpg">
     <h4>5. 首先选择 “MTProto Proxy”, 之后分别填入以下服务器信息, 最后确定</h4>
+    <a style="font-size: 85%;color: blue" onclick="connect()">可尝试直接唤起 TG，之后点击右下角 CONNECT PROXY</a>
     <table>
         <tr>
             <td>Server:</td>
-            <td><input id="server" value="103.254.208.198"></input></td>
-            <td><button style="width:130px" onclick="copy('server')">复制</button></td>
+            <td><input id="server" value="5cf53fc0-f64e-435e-8621-6210ded24cf8"></input></td>
+            <td><button style="width:125px" onclick="copy('server')">复制</button></td>
         </tr>
         <tr>
             <td>Port:</td>
-            <td><input id="port" value="443"></input></td>
-            <td><button style="width:130px" onclick="copy('port')">复制</button></td>
+            <td><input id="port" value="2b626e1b-ebd2-4e92-9673-68c683433e43"></input></td>
+            <td><button style="width:125px" onclick="copy('port')">复制</button></td>
         </tr>
         <tr>
             <td>Secret:</td>
-            <td><input id="secret" value="dd38bfef8eb0015910c3c8e0ebb50c5859"></input></td>
-            <td><button style="width:130px" onclick="copy('secret')">复制</button></td>
+            <td><input id="secret" value="de02040d-8dcb-4349-afac-26fbcc35358c"></input></td>
+            <td><button style="width:125px" onclick="copy('secret')">复制</button></td>
         </tr>
     </table>
     <p></p>
