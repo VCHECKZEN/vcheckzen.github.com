@@ -6,21 +6,22 @@
   }
 
   Even.prototype.setup = function() {
-    var theme = this.config;
-    var leancloud = theme.leancloud;
+    var leancloud = this.config.leancloud;
 
     this.navbar();
-    if (theme.toc) {
+    this.responsiveTable();
+
+    if (this.config.toc) {
       this.scrollToc();
       this.tocFollow();
     }
-    if (theme.fancybox) {
+    if (this.config.fancybox) {
       this.fancybox();
     }
     if (leancloud.app_id && leancloud.app_key) {
       this.recordReadings();
     }
-    if (theme.pjax) {
+    if (this.config.pjax) {
       this.pjax();
     }
     this.backToTop();
@@ -55,6 +56,11 @@
     $('#mobile-panel').on('touchend', function () {
       slideout.isOpen() && $navIcon.click();
     });
+  };
+
+  Even.prototype.responsiveTable = function () {
+    var tables = $('.post-content > table')
+    tables.wrap('<div class="table-responsive">')
   };
 
   Even.prototype.scrollToc = function () {
@@ -178,6 +184,11 @@
           newcounter.set('url', url);
           newcounter.set('time', 1);
 
+          var acl = new AV.ACL();
+          acl.setWriteAccess('*', true)
+          acl.setReadAccess('*', true)
+          newcounter.setACL(acl)
+
           newcounter.save().then(function () {
             updateVisits($visits, newcounter.get('time'));
           });
@@ -213,6 +224,8 @@
   Even.prototype.pjax = function () {
     if (location.hostname === 'localhost' || this.hasPjax) return;
     this.hasPjax = true;
+    this._fancybox = $.fancybox;
+    this._fancyboxProto = $.prototype.fancybox;
 
     var that = this;
     $(document).pjax('a', 'body', { fragment: 'body' });
@@ -223,6 +236,8 @@
     $(document).on('pjax:complete', function () {
       NProgress.done();
       $('body').removeClass('hide-top');
+      $.fancybox = that._fancybox;
+      $.prototype.fancybox = that._fancyboxProto;
       that.setup();
     });
   };
