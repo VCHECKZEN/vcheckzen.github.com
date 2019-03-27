@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vcheckzen.github.io/"/>
-  <updated>2019-03-27T17:18:16.793Z</updated>
+  <updated>2019-03-27T17:21:20.175Z</updated>
   <id>https://vcheckzen.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://vcheckzen.github.io/2019/03/28/summary-of-ps/"/>
     <id>https://vcheckzen.github.io/2019/03/28/summary-of-ps/</id>
     <published>2019-03-27T16:00:00.000Z</published>
-    <updated>2019-03-27T17:18:16.793Z</updated>
+    <updated>2019-03-27T17:21:20.175Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><p>Since I don’t want to learn JAVA recently, why not learn some PS skills for fun!.</p><h1 id="Picture-Cropping"><a href="#Picture-Cropping" class="headerlink" title="Picture Cropping"></a>Picture Cropping</h1><ul><li>解锁<code>背景</code>为<code>图层</code></li><li><code>Alt+Ctrl+C</code> 调整<code>画布大小</code></li><li>用<code>移动工具</code>移动图片</li><li>选中图片，按 <code>Ctrl+T</code> 进行<code>自由变换</code></li><li>默认<code>等比缩放</code>，结合 <code>Alt</code> <code>沿中心点缩放</code></li></ul>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><p>Since I don’t want to learn JAVA recently, why not learn some PS skills for fun!</p><h1 id="Picture-Cropping"><a href="#Picture-Cropping" class="headerlink" title="Picture Cropping"></a>Picture Cropping</h1><ul><li>解锁<code>背景</code>为<code>图层</code></li><li><code>Alt+Ctrl+C</code> 调整<code>画布大小</code></li><li>用<code>移动工具</code>移动图片</li><li>选中图片，按 <code>Ctrl+T</code> 进行<code>自由变换</code></li><li>默认<code>等比缩放</code>，结合 <code>Alt</code> <code>沿中心点缩放</code></li></ul>]]></content>
     
     <summary type="html">
     
