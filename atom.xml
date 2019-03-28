@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vcheckzen.github.io/"/>
-  <updated>2019-03-28T10:09:34.814Z</updated>
+  <updated>2019-03-28T13:14:20.162Z</updated>
   <id>https://vcheckzen.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://vcheckzen.github.io/2019/03/28/summary-of-ps/"/>
     <id>https://vcheckzen.github.io/2019/03/28/summary-of-ps/</id>
     <published>2019-03-27T16:00:00.000Z</published>
-    <updated>2019-03-28T10:09:34.814Z</updated>
+    <updated>2019-03-28T13:14:20.162Z</updated>
     
-    <content type="html"><![CDATA[<a id="more"></a><p>Since I don’t want to learn JAVA recently, why not learn some PS skills for fun!</p><h2 id="Picture-Cropping"><a href="#Picture-Cropping" class="headerlink" title="Picture Cropping"></a>Picture Cropping</h2><ul><li>解锁<code>背景</code>为<code>图层</code></li><li><code>Alt+Ctrl+C</code> 调整<code>画布大小</code></li><li>用<code>移动工具</code>移动图片</li><li>选中图片，按 <code>Ctrl+T</code> 进行<code>自由变换</code></li><li>默认<code>等比缩放</code>，结合 <code>Alt</code> <code>沿中心点缩放</code></li></ul><h2 id="Layers-Overlaying"><a href="#Layers-Overlaying" class="headerlink" title="Layers Overlaying"></a>Layers Overlaying</h2><ul><li>打开<code>多张图片</code></li><li>从<code>图层面板</code>将一张图片拖入<code>另一图层</code></li><li>调整<code>叠加模式</code>，其中<code>滤色</code>用来过滤深色信息</li><li>选中<code>图层</code>，添加<code>矢量蒙版</code>以保留原始像素信息</li><li>使用<code>橡皮擦工具</code>擦除多余信息</li><li>期间可切换<code>黑白前景颜色</code>，用来恢复部分信息</li><li>后期减小<code>不透明度</code>和<code>流量</code>，进行精细擦除</li><li><code>[</code> 和 <code>]</code> 分别对应增大和减小橡皮擦半径</li></ul>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><p>Since I don’t want to learn JAVA recently, why not learn some PS skills for fun!</p><h2 id="Picture-Cropping"><a href="#Picture-Cropping" class="headerlink" title="Picture Cropping"></a>Picture Cropping</h2><ul><li>解锁<code>背景</code>为<code>图层</code></li><li><code>Alt+Ctrl+C</code> 调整<code>画布大小</code></li><li>用<code>移动工具</code>移动图片</li><li>选中图片，按 <code>Ctrl+T</code> 进行<code>自由变换</code></li><li>默认<code>等比缩放</code>，结合 <code>Alt</code> <code>沿中心点缩放</code></li></ul><h2 id="Layers-Overlaying"><a href="#Layers-Overlaying" class="headerlink" title="Layers Overlaying"></a>Layers Overlaying</h2><ul><li>打开<code>多张图片</code></li><li>从<code>图层面板</code>将一张图片拖入<code>另一图层</code></li><li>调整<code>叠加模式</code>，其中<code>滤色</code>用来过滤深色信息</li><li>选中<code>图层</code>，添加<code>矢量蒙版</code>以保留原始像素信息</li><li>使用<code>橡皮擦工具</code>擦除多余信息</li><li>期间可切换<code>黑白前景颜色</code>，用来恢复部分信息</li><li>后期减小<code>不透明度</code>和<code>流量</code>，进行精细擦除</li><li><code>[</code> 和 <code>]</code> 分别对应增大和减小橡皮擦半径</li></ul><h2 id="Color-Correction"><a href="#Color-Correction" class="headerlink" title="Color Correction"></a>Color Correction</h2><ul><li><code>Ctrl+J</code> 复制一层，取消<code>背景可见</code></li><li>点击<code>图层面板</code>下方<code>创建新的填充或调整图层</code>按钮创建<code>校色命令</code>，避免直接调整<code>图像</code></li><li>点击<code>曲线</code>，上部往上拉调高<code>亮部</code>，下部往下拉调低<code>暗部</code></li><li>点击<code>色彩平衡</code>，适当<code>增减色彩</code></li><li>点击<code>色相/饱和度</code>，边调整边预览</li><li>右键相应<code>校色命令</code>，选择创建<code>剪贴蒙版</code>，使其只对<code>其下一个图层</code>产生影响，而非所有图层</li></ul>]]></content>
     
     <summary type="html">
     
