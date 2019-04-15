@@ -125,22 +125,24 @@
       <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Voice-of-Experience"><span class="toc-text">Voice of Experience</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unlock-Bootloader"><span class="toc-text">Unlock Bootloader</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Save-the-Brick"><span class="toc-text">Save the Brick</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Firmware-for-SP-Flash-Tool"><span class="toc-text">Firmware for SP Flash Tool</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Specific-Driver"><span class="toc-text">Specific Driver</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TWRP-Operations"><span class="toc-text">TWRP Operations</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Two-Partitions-Wipe"><span class="toc-text">Two-Partitions Wipe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Four-Partitions-Wipe"><span class="toc-text">Four-Partitions Wipe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Format-Data-Partition"><span class="toc-text">Format Data Partition</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Firmwares-for-Recovery"><span class="toc-text">Firmwares for Recovery</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Daily-Version"><span class="toc-text">Daily Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Beta-Version"><span class="toc-text">Beta Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Stable-Version"><span class="toc-text">Stable Version</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#International-Version"><span class="toc-text">International Version</span></a></li></ol></li></ol>
     </div>
   </div><div class="post-content"><a id="more"></a>
-<h1 id="Voice-of-Experience"><a href="#Voice-of-Experience" class="headerlink" title="Voice of Experience"></a>Voice of Experience</h1><p>软件无法得到 <code>root 授权</code>是解锁失败的常见原因；而线刷失败多半归咎于以下情况：</p>
+<h1 id="Voice-of-Experience"><a href="#Voice-of-Experience" class="headerlink" title="Voice of Experience"></a>Voice of Experience</h1><p>无法得到 <code>root 授权</code>是解锁失败的常见原因；而线刷失败多半归咎于以下情况：</p>
 <ol>
-<li>未禁用签名，导致驱动无法安装，进而无法连机</li>
-<li>USB 接口损坏，导致无法连机</li>
-<li>字库损坏，进而无法写入数据</li>
+<li>未禁用签名，驱动无法安装</li>
+<li>USB 接口损坏，无法连机</li>
+<li>字库损坏，无法写入数据</li>
 </ol>
 <h1 id="Unlock-Bootloader"><a href="#Unlock-Bootloader" class="headerlink" title="Unlock Bootloader"></a>Unlock Bootloader</h1><ol>
 <li>刷入 <a href="https://download.meizu.com/Firmware/Flyme/m3_note/6.7.9.12/cn_daily/20170912000320/3d65e1ba/update.zip" target="_blank" rel="noopener">912 daily</a> 固件</li>
 <li>开启官方系统 <code>root</code></li>
 <li>解压解锁文件到 <code>sdcard</code> 根目录</li>
-<li>安装并打开 <a href="https://dlc2.pconline.com.cn/filedown_365229_7029710/6YU2divO/jackpal.androidterm_v1.0.70.apk" target="_blank" rel="noopener">终端模拟器</a></li>
-<li><code>复制粘贴</code>以下命令并回车</li>
-<li>此时系统将弹出 <code>root 授权</code>提示，选择<code>允许</code></li>
-<li>成功后，搜索群文件 <code>FBTOOLS</code> 进行解锁</li>
+<li>安装并打开 <a href="https://dl.pconline.com.cn/download/365229.html" target="_blank" rel="noopener">终端模拟器</a></li>
+<li>输入 <code>su</code> 回车，系统将弹出 <code>root 授权</code>提示，选择<code>允许</code></li>
+<li>复制 <code>sh /sdcard/run.sh</code>，粘贴回车，注意 <code>sh</code> 后空格</li>
+<li>出现形如 <code>in out</code> 结果，即为执行成功，否则</li>
+<li>进入 <code>root</code> 设置，将<code>终端管理器</code>权限设为<code>询问</code>，重复 <code>5-7</code> 步</li>
+<li>成功后，搜索群文件 <code>FBTOOLS</code> 解锁</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 出现形如 in out 结果，即为执行成功，否则重复以上步骤</span></span><br><span class="line"><span class="comment"># 10+0 records in</span></span><br><span class="line"><span class="comment"># 10+0 records out</span></span><br><span class="line"><span class="comment"># 104857600 bytes (105 MB, 100 MiB) copied, 0.186133 s, 563 MB/s</span></span><br><span class="line"></span><br><span class="line">su &amp;&amp; sh /sdcard/run.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">m3note:/ $ su</span><br><span class="line">enter main</span><br><span class="line">start <span class="built_in">command</span> :am start -a android.intent.action.MAIN -n com</span><br><span class="line">.android.settings/com.meizu.settings.root.FlymeRootRequestAc</span><br><span class="line">tivity --ei uid 10105 --ei pid 6239 &gt; /dev/null</span><br><span class="line">m3note:/ <span class="comment"># su /sccard/run.sh</span></span><br><span class="line">2048+0 records <span class="keyword">in</span></span><br><span class="line">2048+0 records out</span><br><span class="line">1048576 bytes transferred <span class="keyword">in</span> 0.065 secs (16131938 bytes/sec)</span><br><span class="line">m3note:/ <span class="comment">#</span></span><br></pre></td></tr></table></figure>
 <h1 id="Save-the-Brick"><a href="#Save-the-Brick" class="headerlink" title="Save the Brick"></a>Save the Brick</h1><h2 id="Firmware-for-SP-Flash-Tool"><a href="#Firmware-for-SP-Flash-Tool" class="headerlink" title="Firmware for SP Flash Tool"></a>Firmware for SP Flash Tool</h2><ul>
 <li><a href="http://rom.url88.cn/201812063517849/%E9%AD%85%E6%97%8F%E9%AD%85%E8%93%9DNote3Flyme5.1.6.0A%E5%85%AC%E5%BC%80%E7%89%88.SHB%E5%AE%98%E6%96%B9%E7%BA%BF%E5%88%B7%E5%8C%85.zip" target="_blank" rel="noopener">5.1.6.0A - 公开版</a></li>
 </ul>
