@@ -146,6 +146,7 @@
                 ctx = canvas.getContext('2d');
                 ctx.drawImage(image, setting[key]["0"], setting[key]["1"], setting[key]["2"], setting[key]["2"], 0, 0, 280, 280);
 
+                console.log(canvas.toDataURL());
                 qrcode.decode(canvas.toDataURL());
                 qrcode.callback = function (value) {
                     setting.qrcodeUrl[key] = value;
