@@ -140,7 +140,7 @@
 <li>复制 <code>sh /sdcard/run.sh</code>，粘贴回车，注意 <code>sh</code> 后空格</li>
 <li>出现形如 <code>in out</code> 结果，即为执行成功，否则</li>
 <li>进入 <code>root</code> 设置，将<code>终端管理器</code>权限设为<code>询问</code>，重复 <code>5-7</code> 步</li>
-<li>成功后，搜索群文件 <code>FBTOOLS</code> 解锁</li>
+<li>成功后，搜索群文件 <code>FBTOOLS（需解压）</code> 解锁</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">m3note:/ $ su</span><br><span class="line">enter main</span><br><span class="line">start <span class="built_in">command</span> :am start -a android.intent.action.MAIN -n com</span><br><span class="line">.android.settings/com.meizu.settings.root.FlymeRootRequestAc</span><br><span class="line">tivity --ei uid 10105 --ei pid 6239 &gt; /dev/null</span><br><span class="line">m3note:/ <span class="comment"># sh /sccard/run.sh</span></span><br><span class="line">2048+0 records <span class="keyword">in</span></span><br><span class="line">2048+0 records out</span><br><span class="line">1048576 bytes transferred <span class="keyword">in</span> 0.065 secs (16131938 bytes/sec)</span><br><span class="line">m3note:/ <span class="comment">#</span></span><br></pre></td></tr></table></figure>
 <h1 id="Save-the-Brick"><a href="#Save-the-Brick" class="headerlink" title="Save the Brick"></a>Save the Brick</h1><h2 id="Firmware-for-SP-Flash-Tool"><a href="#Firmware-for-SP-Flash-Tool" class="headerlink" title="Firmware for SP Flash Tool"></a>Firmware for SP Flash Tool</h2><ul>
@@ -149,7 +149,7 @@
 <h2 id="Specific-Driver"><a href="#Specific-Driver" class="headerlink" title="Specific Driver"></a>Specific Driver</h2><ul>
 <li><a href="https://jingyan.baidu.com/article/acf728fd495b9ff8e410a377.html?qq-pf-to=pcqq.temporaryc2c" target="_blank" rel="noopener">禁用驱动程序签名 - Windows 7</a></li>
 <li><a href="https://jingyan.baidu.com/article/624e74594dbc8d34e8ba5aa6.html" target="_blank" rel="noopener">禁用驱动程序签名 - Windows 8/10</a></li>
-<li><a href="https://www.lanzous.com/i3d6v1e" target="_blank" rel="noopener">下载驱动并安装</a></li>
+<li><a href="https://www.lanzous.com/i3d6v1e" target="_blank" rel="noopener">下载专用驱动并安装</a></li>
 </ul>
 <h1 id="TWRP-Operations"><a href="#TWRP-Operations" class="headerlink" title="TWRP Operations"></a>TWRP Operations</h1><h2 id="Two-Partitions-Wipe"><a href="#Two-Partitions-Wipe" class="headerlink" title="Two-Partitions Wipe"></a>Two-Partitions Wipe</h2><p>一般刷 ROM 前<code>双清</code>即可，有问题再<code>四清</code> + <code>格式化 data</code>，<code>双清</code>等同于<code>恢复出厂</code>。双清的步骤为：<br>依次进入<code>清除</code>- <code>高级清除菜单</code>，选择 <code>System</code>、<code>data</code> 两个分区后，滑动确认（与<code>格式化 data</code> 中的 <code>data</code> 不是同一分区）</p>
 <h2 id="Four-Partitions-Wipe"><a href="#Four-Partitions-Wipe" class="headerlink" title="Four-Partitions Wipe"></a>Four-Partitions Wipe</h2><p><code>四清</code>刷 ROM 一般不会有问题。其步骤为：依次进入<code>清除</code> - <code>高级清除菜单</code>，选择图中四个分区，滑动确认</p>
