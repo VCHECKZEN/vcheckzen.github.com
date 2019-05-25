@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     <link rel="icon" href="https://img.alicdn.com/tps/TB1HwXxLpXXXXchapXXXXXXXXXX-32-32.ico" type="image/x-icon">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <title>Telegram 使用说明</title>
     <style>
         body {
@@ -23,16 +24,20 @@
     </style>
     <script>
         var settings = {
-            "async": false,
+            "async": true,
             "crossDomain": true,
             "url": "https://api-logi-py.us-south.cf.appdomain.cloud/?url=https://www.lanzous.com/i44mvof&pwd=btrs",
             "method": "GET"
-        }
+        };
 
-        $.ajax(settings).done(function (response) {
-            if (response['code'] === 200) {
-                $('#tg-down').href = response['data']['downUrl'];
-            }
+        $(document).ready(function () {
+            $.ajax(settings).done(function (response) {
+                if (response['code'] == 200) {
+                    console.log(response['code'])
+                    $('#tg-down').attr('href', response['data']['downUrl']);
+                    console.log($('#tg-down').attr('href'))
+                }
+            });
         });
 
         function copy(id) {
@@ -74,12 +79,14 @@
 <h4>TG 趣闻</h4>
 <p><a target="_blank" href="http://www.sohu.com/a/228954527_100053377">被普京封杀的叛逆黑客：Telegram 创始人杜罗夫</a></p>
 <p><a target="_blank" href="http://www.tmtpost.com/1443098.html">Telegram 传奇：一个关于俄罗斯富豪、黑客、极权和阴谋的创业故事</a></p>
-<h4><a target="_blank" href="https://t.me/pubg2333" style="color: black;">0. TG 老鸟<span style="color: red;">点击本行</span>直接加入，否则继续阅读</a>
+<h4><a target="_blank" href="https://t.me/pubg2333" style="color: black;">0. TG 老鸟<span
+        style="color: red;">点击本行</span>直接加入，否则继续阅读</a>
 </h4>
 <h4>1. 下载安装并打开<a id="tg-down"
                  href="https://api-logi-py.us-south.cf.appdomain.cloud/?url=https://www.lanzous.com/i44mvof&type=down&pwd=btrs">
-    TG (稍等片刻, 请勿重复点击)</a>
+    Telegram</a>
 </h4>
+
 <!--<img src="https://s2.ax1x.com/2019/04/24/EViUd1.jpg">-->
 <img src="https://ws3.sinaimg.cn/large/005BYqpgly1g0udmuyyh1j30u01o04dz.jpg">
 <h4>2. 点击 “START MESSAGING” 即 “开始聊天” 进行注册</h4>
