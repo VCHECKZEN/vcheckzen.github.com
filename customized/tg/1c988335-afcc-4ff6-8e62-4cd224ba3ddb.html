@@ -30,21 +30,11 @@
             "method": "GET"
         };
 
-        $(document).ready(function () {
-            $.ajax(settings).done(function (response) {
-                if (response['code'] == 200) {
-                    console.log(response['code'])
-                    $('#tg-down').attr('href', response['data']['downUrl']);
-                    console.log($('#tg-down').attr('href'))
-                }
-            });
-        });
-
         function copy(id) {
             var value = '';
             switch (id) {
                 case 'server':
-                    value = 'aG9tZS5haXdhci50dw==';
+                    value = 'aG9tZS52Y2hlY2t6ZW4udG9w';
                     break;
                 case 'port':
                     value = 'MTAwMDI=';
@@ -62,7 +52,7 @@
 
         function connect() {
             self.location = window.atob(
-                "dGc6Ly9wcm94eT9zZXJ2ZXI9aG9tZS5haXdhci50dyZwb3J0PTEwMDAyJnNlY3JldD1iMGNiY2VmNWE0ODZkOWYzNjQ3MmFjYTdmOGUxMWE5ZA=="
+                "dGc6Ly9wcm94eT9zZXJ2ZXI9aG9tZS52Y2hlY2t6ZW4udG9wJnBvcnQ9MTAwMDImc2VjcmV0PWIwY2JjZWY1YTQ4NmQ5ZjM2NDcyYWNhN2Y4ZTExYTlk"
             );
         }
     </script>
@@ -86,7 +76,15 @@
                  href="https://api-logi-py.us-south.cf.appdomain.cloud/?url=https://www.lanzous.com/i44mvof&type=down&pwd=btrs">
     Telegram</a>
 </h4>
-
+<script>
+    $.ajax(settings).done(function (response) {
+        if (response['code'] == 200) {
+            console.log(response['code'])
+            $('#tg-down').attr('href', response['data']['downUrl']);
+            console.log($('#tg-down').attr('href'))
+        }
+    });
+</script>
 <!--<img src="https://s2.ax1x.com/2019/04/24/EViUd1.jpg">-->
 <img src="https://ws3.sinaimg.cn/large/005BYqpgly1g0udmuyyh1j30u01o04dz.jpg">
 <h4>2. 点击 “START MESSAGING” 即 “开始聊天” 进行注册</h4>
