@@ -30,6 +30,17 @@
             "method": "GET"
         };
 
+        $(document).ready(function () {
+            $.ajax(settings).done(function (response) {
+                if (response['code'] == 200) {
+                    console.log(response['code'])
+                    $('#tg-down').attr('href', response['data']['downUrl']);
+                    $('#tg-down').css('color', '#2F4F4F')
+                    console.log($('#tg-down').attr('href'))
+                }
+            });
+        });
+
         function copy(id) {
             var value = '';
             switch (id) {
@@ -76,15 +87,6 @@
                  href="https://api-logi-py.us-south.cf.appdomain.cloud/?url=https://www.lanzous.com/i44mvof&type=down&pwd=btrs">
     Telegram</a>
 </h4>
-<script>
-    $.ajax(settings).done(function (response) {
-        if (response['code'] == 200) {
-            console.log(response['code'])
-            $('#tg-down').attr('href', response['data']['downUrl']);
-            console.log($('#tg-down').attr('href'))
-        }
-    });
-</script>
 <!--<img src="https://s2.ax1x.com/2019/04/24/EViUd1.jpg">-->
 <img src="https://ws3.sinaimg.cn/large/005BYqpgly1g0udmuyyh1j30u01o04dz.jpg">
 <h4>2. 点击 “START MESSAGING” 即 “开始聊天” 进行注册</h4>
