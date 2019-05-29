@@ -104,7 +104,9 @@
             url: UrlParam.paramValues('video')
         }
     });
-    document.getElementsByTagName('video')[0].setAttribute('referrerpolicy', 'no-referrer');
+    video = document.getElementsByTagName('video')[0];
+    video.removeAttribute('crossorigin');
+    video.setAttribute('referrerpolicy', 'no-referrer');
 </script>
 </body>
 
