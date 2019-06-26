@@ -96,12 +96,12 @@
     let dplayer = document.getElementById('dplayer');
     dplayer.style.height = 9 * dplayer.clientWidth / 16 + 'px';
     let movieName = UrlParam.paramValues('title');
-    let moviePost = UrlParam.paramValues('pic');
+    let moviePost = UrlParam.paramValues('post');
     if (typeof movieName != 'undefined') {
         document.title = movieName + ' - ' + document.title;
     }
     if (typeof moviePost != 'undefined') {
-        document.body.style.backgroundImage = 'url(' + UrlParam.paramValues('pic') + ')';
+        document.body.style.backgroundImage = 'url(' + UrlParam.paramValues('post') + ')';
     } else {
         document.body.style.backgroundImage =
             "url('//ae01.alicdn.com/kf/UTB832usPpfFXKJk43Otq6xIPFXa8.jpg')";
@@ -110,7 +110,7 @@
         container: document.getElementById('dplayer'),
         screenshot: true,
         video: {
-            url: UrlParam.paramValues('video')
+            url: UrlParam.paramValues('source')
         }
     });
 </script>
