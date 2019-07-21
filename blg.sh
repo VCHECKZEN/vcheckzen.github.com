@@ -89,6 +89,7 @@ function preview()
     hexo s -g
     termux-clipboard-set 'http://localhost:4000'
     echo "本地服务器地址已经复制到截切版，请直接粘贴到浏览器打开！"
+    echo "如需停止预览，请按 Ctrl + C ！"
 }
 
 function deploy()
@@ -107,7 +108,7 @@ function deploy()
     git add -A
     git commit -m "feat[all]: regular update"
     git push origin master -f
-    echo "恭喜您，部署成功！"
+    echo "恭喜您，源文件和编译文件都已部署成功！"
 }
 
 echo "欢迎使用 Blog 助手，您可执行以下命令！"
