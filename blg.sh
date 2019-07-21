@@ -64,7 +64,7 @@ function update()
     
     cd "${LOCAL_STORAGE}"
     if [[ ! -d .git ]]; then
-        echo "首次拉取，请需要输入 yes 确认!"
+        echo "首次拉取，请输入 yes 确认!"
         git clone -b source "${BLOG_REPOSITORY}"
     fi
     
