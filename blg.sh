@@ -85,9 +85,9 @@ function update()
 
 function write()
 {
-    title="${1}"
+    title="$1"
     update
-    hexo new "${title}"
+    hexo new "$title"
     echo "新文章文件已经生成到 /sdcard/downloads/blog/${BLOG_DOMAIN}/source/_posts 下，请使用 Markdown 编辑器继续撰写！"
 }
 
@@ -132,7 +132,7 @@ case $1 in
     ;;
     'update') update
     ;;
-    'new') write "${2}"
+    'new') write "$2"
     ;;
     'preview') preview
     ;;
