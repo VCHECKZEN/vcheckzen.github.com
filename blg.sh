@@ -1,3 +1,11 @@
+function upgrade()
+{
+    echo "正在更新..."
+    apt update && apt install curl -y && curl -s -o $PREFIX/bin/blg \
+    https://raw.githubusercontent.com/vcheckzen/vcheckzen.github.com/tool/blg.sh && \
+    chmod a+x $PREFIX/bin/blg
+    echo "初始化成功！"
+}
 
 function init()
 {
@@ -9,7 +17,7 @@ function init()
     npm config set registry https://registry.npm.taobao.org --global
     npm config set disturl https://npm.taobao.org/dist --global
     npm install hexo-cli -g
-    echo "恭喜您，初始化成功！"
+    echo "初始化成功！"
 }
 
 function set()
@@ -43,7 +51,7 @@ do
  done
 EOF
     fi
-    echo "恭喜您，设置完成！"
+    echo "设置完成！"
 }
 
 function genKey()
@@ -71,7 +79,7 @@ function update()
     cd "${BLOG_DOMAIN}"
     git pull
     npm install --no-bin-links
-    echo "恭喜您，代码更新成功！"
+    echo "代码更新成功！"
 }
 
 function write()
@@ -109,7 +117,7 @@ function deploy()
     git add -A
     git commit -m "feat[all]: regular update"
     git push origin master -f
-    echo "恭喜您，源文件和编译文件都已部署成功！"
+    echo "源文件和编译文件都已部署成功！"
 }
 
 
@@ -138,4 +146,5 @@ case $1 in
     echo "blg new <title>    - 生成新文章"
     echo "blg preview        - 本地预览"
     echo "blg deploy         - 发布到 Github"
+    echo "blg upgrade        - 更新 Blog 助手"
 esac
