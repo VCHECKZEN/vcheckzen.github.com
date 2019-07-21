@@ -128,21 +128,21 @@ function deploy()
 
 [[ -f ~/.blogrc ]] && source ~/.blogrc
 case $1 in
-    'init') init
+    'init'|1) init
     ;;
-    'set') set
+    'set'|2) set
     ;;
-    'key') genKey
+    'key'|3) genKey
     ;;
-    'update') update
+    'update'|4) update
     ;;
-    'new') write "$2"
+    'new'|5) write "$2"
     ;;
-    'preview') preview
+    'preview'|6) preview
     ;;
-    'deploy') deploy
+    'deploy'|7) deploy
     ;; 
-    'upgrade') upgrade
+    'upgrade'|8) upgrade
     ;;
     *) 
     echo "欢迎使用 Blog 助手，您可执行以下命令！"
@@ -155,3 +155,4 @@ case $1 in
     echo "blg deploy         - 发布到 Github"
     echo "blg upgrade        - 更新 Blog 助手"
 esac
+
