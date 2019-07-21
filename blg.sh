@@ -18,11 +18,11 @@ function set()
     read email
     echo "请输入 Github 仓库的 ssh 协议地址："
     read repo
-    user=`echo $repo | sed 's|.*:\(.*\)/.*|\1|g'`
-    domain=`echo $repo | sed 's|.*/\(.*\).git|\1|g'`
+    user=`echo "${repo}" | sed 's|.*:\(.*\)/.*|\1|g'`
+    domain=`echo "${repo}" | sed 's|.*/\(.*\).git|\1|g'`
     
-    git config --global user.name "$user"
-    git config --global user.email "$email"
+    git config --global user.name "${user}"
+    git config --global user.email "${email}"
     
     cat > ~/.blogrc <<EOF
 GITHUB_USER="$user"
@@ -49,7 +49,7 @@ EOF
 function genKey()
 {
     echo "正在生成，其中会有两次停顿，请一律回车！"
-    ssh-keygen -t rsa -C "$GITHUB_EMAIL" -f ~/.ssh/github_rsa
+    ssh-keygen -t rsa -C "${GITHUB_EMAIL}" -f ~/.ssh/github_rsa
     cat ~/.ssh/github_rsa.pub | termux-clipboard-set
     echo "新生成的 SSH Key 已经复制到剪切版，请将其粘贴到 Github 设置中！"
 }
@@ -57,17 +57,17 @@ function genKey()
 function update()
 {
     echo "正在拉取最新代码..."
-    if [[ ! -d $LOCAL_STORAGE ]]; then
-        mkdir -p $LOCAL_STORAGE
+    if [[ ! -d "${LOCAL_STORAGE}" ]]; then
+        mkdir -p "${LOCAL_STORAGE}"
     fi
     
-    cd $LOCAL_STORAGE
+    cd "${LOCAL_STORAGE}"
     if [[ ! -d .git ]]; then
         echo "首次拉取，请需要输入 yes 确认!"
         git clone -b source "${BLOG_REPOSITORY}"
     fi
     
-    cd $BLOG_DOMAIN
+    cd "${BLOG_DOMAIN}"
     git pull
     npm install --no-bin-links
     echo "恭喜您，代码更新成功！"
@@ -78,12 +78,12 @@ function write()
     title="${1}"
     update
     hexo new "${title}"
-    echo "新文章文件已经生成到 /sdcard/downloads/blog/$BLOG_DOMAIN/source/_posts 下，请使用 Markdown 编辑器继续撰写！"
+    echo "新文章文件已经生成到 /sdcard/downloads/blog/${BLOG_DOMAIN}/source/_posts 下，请使用 Markdown 编辑器继续撰写！"
 }
 
 function preview()
 {
-    cd $LOCAL_STORAGE/$BLOG_DOMAIN
+    cd "${LOCAL_STORAGE}/${BLOG_DOMAIN}"
     hexo clean
     hexo s -g
     termux-clipboard-set 'http://localhost:4000'
@@ -94,7 +94,7 @@ function preview()
 function deploy()
 {
     echo "正在部署..."
-    cd $LOCAL_STORAGE/$BLOG_DOMAIN
+    cd "${LOCAL_STORAGE}/${BLOG_DOMAIN}"
     hexo clean
     hexo g
     git add -A
@@ -121,7 +121,7 @@ case $1 in
     ;;
     'update') update
     ;;
-    'new') write $2
+    'new') write "${2}"
     ;;
     'preview') preview
     ;;
