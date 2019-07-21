@@ -143,7 +143,7 @@ case $1 in
     'upgrade'|8) upgrade
     ;;
     *)
-    cat <<EOF 
+    cat <<EOF
 欢迎使用 Blog 助手，您可执行以下命令！
 blg 1 | init           - 安装必要软件
 blg 2 | set            - 设置 Github 账号
