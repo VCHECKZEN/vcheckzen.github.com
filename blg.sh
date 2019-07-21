@@ -64,7 +64,6 @@ function genKey()
     ssh-keygen -t rsa -C "${GITHUB_EMAIL}" -f ~/.ssh/github_rsa
     cat ~/.ssh/github_rsa.pub | termux-clipboard-set
     echo "新生成的 SSH Key 已经复制到剪切版，请将其粘贴到 Github 设置中！"
-    source ~/.bashrc
 }
 
 function update()
@@ -125,6 +124,7 @@ function deploy()
 }
 
 
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 [[ -f ~/.blogrc ]] && source ~/.blogrc
 case $1 in
     'init'|1) init
