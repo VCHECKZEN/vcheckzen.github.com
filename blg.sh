@@ -86,10 +86,11 @@ function preview()
 {
     cd "${LOCAL_STORAGE}/${BLOG_DOMAIN}"
     hexo clean
-    hexo s -g
+    hexo g
     termux-clipboard-set 'http://localhost:4000'
     echo "本地服务器地址已经复制到截切版，请直接粘贴到浏览器打开！"
     echo "如需停止预览，请按 Ctrl + C ！"
+    hexo s
 }
 
 function deploy()
