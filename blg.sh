@@ -29,7 +29,7 @@ GITHUB_USER="$user"
 GITHUB_EMAIL="$email"
 BLOG_DOMAIN="$domain"
 BLOG_REPOSITORY="$repo"
-LOCAL_STORAGE="~/storage/downloads/blog/"
+LOCAL_STORAGE="$HOME/storage/downloads/blog/"
 EOF
     
     if [[ ! `cat ~/.bashrc 2>/dev/null | grep -Eo ssh-add` ]]; then
