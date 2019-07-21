@@ -112,14 +112,7 @@ function deploy()
     echo "恭喜您，源文件和编译文件都已部署成功！"
 }
 
-echo "欢迎使用 Blog 助手，您可执行以下命令！"
-echo "blg init           - 安装必要软件"
-echo "blg set            - 设置 Github 账号"
-echo "blg key            - 生成 SSH 密钥"
-echo "blg update         - 拉取 Blog 源码"
-echo "blg write <title>  - 撰写文章"
-echo "blg preview        - 本地预览"
-echo "blg deploy         - 发布到 Github"
+
 
 case $1 in
     'init') init
@@ -136,4 +129,13 @@ case $1 in
     ;;
     'deploy') deploy
     ;;
+    *) 
+    echo "欢迎使用 Blog 助手，您可执行以下命令！"
+    echo "blg init           - 安装必要软件"
+    echo "blg set            - 设置 Github 账号"
+    echo "blg key            - 生成 SSH 密钥"
+    echo "blg update         - 拉取 Blog 源码"
+    echo "blg write <title>  - 撰写文章"
+    echo "blg preview        - 本地预览"
+    echo "blg deploy         - 发布到 Github"
 esac
