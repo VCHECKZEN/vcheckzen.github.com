@@ -46,6 +46,7 @@ EOF
     if [[ ! `fgrep blogrc ~/.bashrc` ]]; then
         echo "source ~/.blogrc" >> ~/.bashrc
     fi
+    source ~/.bashrc
     echo "恭喜您，设置完成！"
 }
 
