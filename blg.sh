@@ -46,7 +46,7 @@ EOF
     
     if [[ ! `cat ~/.bashrc 2>/dev/null | grep -Eo ssh-add` ]]; then
         cat >> ~/.bashrc <<'EOF'
-[ `pgrep ssh-agent` ] && pkill ssh-agent
+[[ `pgrep ssh-agent` ]] && pkill ssh-agent
 eval `ssh-agent -s` >/dev/null 2>&1
 keys=(`ls ~/.ssh/*.pub 2>/dev/null | sed 's/.pub//g' | xargs`)
 for key in ${keys[@]}
@@ -123,7 +123,6 @@ function deploy()
     echo "源文件和编译文件都已部署成功！"
 }
 
-
 [[ -f ~/.bashrc ]] && source ~/.bashrc
 [[ -f ~/.blogrc ]] && source ~/.blogrc
 case $1 in
@@ -140,18 +139,18 @@ case $1 in
     'preview'|6) preview
     ;;
     'deploy'|7) deploy
-    ;; 
+    ;;
     'upgrade'|8) upgrade
     ;;
-    *) 
-    echo "欢迎使用 Blog 助手，您可执行以下命令！"
-    echo "blg init           - 安装必要软件"
-    echo "blg set            - 设置 Github 账号"
-    echo "blg key            - 生成 SSH 密钥"
-    echo "blg update         - 拉取 Blog 源码"
-    echo "blg new <title>    - 生成新文章"
-    echo "blg preview        - 本地预览"
-    echo "blg deploy         - 发布到 Github"
-    echo "blg upgrade        - 更新 Blog 助手"
+    *)
+        echo "欢迎使用 Blog 助手，您可执行以下命令！"
+        echo "blg init           - 安装必要软件"
+        echo "blg set            - 设置 Github 账号"
+        echo "blg key            - 生成 SSH 密钥"
+        echo "blg update         - 拉取 Blog 源码"
+        echo "blg new <title>    - 生成新文章"
+        echo "blg preview        - 本地预览"
+        echo "blg deploy         - 发布到 Github"
+        echo "blg upgrade        - 更新 Blog 助手"
 esac
 
