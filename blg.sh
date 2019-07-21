@@ -11,10 +11,9 @@ function upgrade()
 function init()
 {
     echo "开始初始化..."
-    mv $PREFIX/etc/apt/sources.list $PREFIX/etc/apt/sources.list.bak
-    cat > $PREFIX/etc/apt/sources.list <<EOF
-deb https://mirrors.tuna.tsinghua.edu.cn/termux stable main
-EOF
+    if [[ ! -f $PREFIX/etc/apt/sources.list.bak ]]; then
+        cp $PREFIX/etc/apt/sources.list $PREFIX/etc/apt/sources.list.bak
+    fi
     apt update && apt upgrade -y
     apt install termux-tools termux-api -y
     termux-setup-storage
