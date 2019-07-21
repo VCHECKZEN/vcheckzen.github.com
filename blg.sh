@@ -40,7 +40,6 @@ EOF
     do
         ssh-add $key >/dev/null 2>&1
     done
-    source ~/.blogrc
 EOF
     
     if [[ ! `cat ~/.bashrc | grep -Eo blogrc` ]]; then
