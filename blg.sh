@@ -1,6 +1,7 @@
 function upgrade()
 {
     echo "正在更新..."
+    rm -f $PREFIX/bin/blg
     apt update && apt install curl -y && curl -s -o $PREFIX/bin/blg \
     https://raw.githubusercontent.com/vcheckzen/vcheckzen.github.com/tool/blg.sh && \
     chmod a+x $PREFIX/bin/blg
