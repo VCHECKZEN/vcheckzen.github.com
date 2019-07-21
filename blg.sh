@@ -63,6 +63,7 @@ function update()
     
     cd $LOCAL_STORAGE
     if [[ ! -d .git ]]; then
+        echo "首次拉取，请需要输入 yes 确认!"
         git clone -b source "${BLOG_REPOSITORY}"
     fi
     
@@ -74,8 +75,9 @@ function update()
 
 function write()
 {
+    title="${1}"
     update
-    hexo new "${1}"
+    hexo new "${title}"
     echo "新文章文件已经生成到 /sdcard/downloads/blog/$BLOG_DOMAIN/source/_posts 下，请使用 Markdown 编辑器继续撰写！"
 }
 
@@ -119,7 +121,7 @@ case $1 in
     ;;
     'update') update
     ;;
-    'write') write $2
+    'new') write $2
     ;;
     'preview') preview
     ;;
@@ -131,7 +133,7 @@ case $1 in
     echo "blg set            - 设置 Github 账号"
     echo "blg key            - 生成 SSH 密钥"
     echo "blg update         - 拉取 Blog 源码"
-    echo "blg write <title>  - 撰写文章"
+    echo "blg new <title>    - 生成新文章"
     echo "blg preview        - 本地预览"
     echo "blg deploy         - 发布到 Github"
 esac
