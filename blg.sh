@@ -45,9 +45,7 @@ EOF
     if [[ ! `cat ~/.bashrc 2>/dev/null | grep -Eo blogrc` ]]; then
         echo "source ~/.blogrc" >> ~/.bashrc
     fi
-    chmod a+x ~/.blogrc
-    chmod a+x ~/.bashrc
-    ~/.blogrc
+    bash ~/.blogrc
     echo "恭喜您，设置完成！"
 }
 
