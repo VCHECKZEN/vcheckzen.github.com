@@ -4,7 +4,7 @@ function upgrade()
     apt update && apt install curl -y && curl -s -o $PREFIX/bin/blg \
     https://raw.githubusercontent.com/vcheckzen/vcheckzen.github.com/tool/blg.sh && \
     chmod a+x $PREFIX/bin/blg
-    echo "初始化成功！"
+    echo "更新成功！"
 }
 
 function init()
@@ -136,6 +136,8 @@ case $1 in
     'preview') preview
     ;;
     'deploy') deploy
+    ;; 
+    'upgrade') upgrade
     ;;
     *) 
     echo "欢迎使用 Blog 助手，您可执行以下命令！"
