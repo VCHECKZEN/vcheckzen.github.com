@@ -13,7 +13,7 @@ function init()
     echo "开始初始化..."
     mv $PREFIX/etc/apt/sources.list $PREFIX/etc/apt/sources.list.bak
     cat > $PREFIX/etc/apt/sources.list <<EOF
-deb https://mirrors.ustc.edu.cn/termux stable main
+deb https://mirrors.tuna.tsinghua.edu.cn/termux stable main
 EOF
     apt update && apt upgrade -y
     apt install termux-tools termux-api -y
