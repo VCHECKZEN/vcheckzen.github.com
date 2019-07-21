@@ -144,13 +144,13 @@ case $1 in
     ;;
     *)
         echo "欢迎使用 Blog 助手，您可执行以下命令！"
-        echo "blg init           - 安装必要软件"
-        echo "blg set            - 设置 Github 账号"
-        echo "blg key            - 生成 SSH 密钥"
-        echo "blg update         - 拉取 Blog 源码"
-        echo "blg new <title>    - 生成新文章"
-        echo "blg preview        - 本地预览"
-        echo "blg deploy         - 发布到 Github"
-        echo "blg upgrade        - 更新 Blog 助手"
+        echo "blg 1 | init           - 安装必要软件"
+        echo "blg 2 | set            - 设置 Github 账号"
+        echo "blg 3 | key            - 生成 SSH 密钥"
+        echo "blg 4 | update         - 拉取 Blog 源码"
+        echo "blg 5 | new <title>    - 生成新文章"
+        echo "blg 6 | preview        - 本地预览"
+        echo "blg 7 | deploy         - 发布到 Github"
+        echo "blg 8 | upgrade        - 更新 Blog 助手"
 esac
 
