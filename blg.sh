@@ -24,28 +24,25 @@ function set()
     git config --global user.name "$user"
     git config --global user.email "$email"
     
-    cat > ~/.blogrc <<-EOF
-    GITHUB_USER="$user"
-    GITHUB_EMAIL="$email"
-    BLOG_DOMAIN="$domain"
-    BLOG_REPOSITORY="$repo"
-    LOCAL_STORAGE="~/storage/downloads/blog/"
+    cat > ~/.blogrc <<EOF
+GITHUB_USER="$user"
+GITHUB_EMAIL="$email"
+BLOG_DOMAIN="$domain"
+BLOG_REPOSITORY="$repo"
+LOCAL_STORAGE="~/storage/downloads/blog/"
 EOF
     
-    cat >> ~/.blogrc <<-'EOF'
-    [ `pgrep ssh-agent` ] && pkill ssh-agent
-    eval `ssh-agent -s` >/dev/null 2>&1
-    keys=(`ls ~/.ssh/*.pub 2>/dev/null | sed 's/.pub//g' | xargs`)
-    for key in ${keys[@]}
-    do
-        ssh-add $key >/dev/null 2>&1
-    done
+    if [[ ! `cat ~/.bashrc 2>/dev/null | grep -Eo ssh-add` ]]; then
+        cat >> ~/.blogrc <<'EOF'
+[ `pgrep ssh-agent` ] && pkill ssh-agent
+eval `ssh-agent -s` >/dev/null 2>&1
+keys=(`ls ~/.ssh/*.pub 2>/dev/null | sed 's/.pub//g' | xargs`)
+for key in ${keys[@]}
+do
+    ssh-add $key >/dev/null 2>&1
+ done
 EOF
-    
-    if [[ ! `cat ~/.bashrc 2>/dev/null | grep -Eo blogrc` ]]; then
-        echo "source ~/.blogrc" >> ~/.bashrc
     fi
-    bash ~/.blogrc
     echo "恭喜您，设置完成！"
 }
 
@@ -112,7 +109,7 @@ function deploy()
 }
 
 
-
+[[ -f ~/.blogrc ]] && source ~/.blogrc
 case $1 in
     'init') init
     ;;
