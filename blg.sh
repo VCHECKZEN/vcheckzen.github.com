@@ -108,6 +108,9 @@ function deploy()
 {
     echo "正在部署..."
     cd "${LOCAL_STORAGE}/${BLOG_DOMAIN}"
+    if [[ `cat .gitignore 2>/dev/null | grep node_modules` ]]; then
+        echo "node_modules/" >> .gitignore
+    fi
     hexo clean
     hexo g
     git add -A
