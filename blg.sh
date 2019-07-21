@@ -33,7 +33,7 @@ LOCAL_STORAGE="~/storage/downloads/blog/"
 EOF
     
     if [[ ! `cat ~/.bashrc 2>/dev/null | grep -Eo ssh-add` ]]; then
-        cat >> ~/.blogrc <<'EOF'
+        cat >> ~/.bashrc <<'EOF'
 [ `pgrep ssh-agent` ] && pkill ssh-agent
 eval `ssh-agent -s` >/dev/null 2>&1
 keys=(`ls ~/.ssh/*.pub 2>/dev/null | sed 's/.pub//g' | xargs`)
