@@ -42,7 +42,7 @@ EOF
     done
 EOF
     
-    if [[ ! `cat ~/.bashrc | grep -Eo blogrc` ]]; then
+    if [[ ! `cat ~/.bashrc 2>/dev/null | grep -Eo blogrc` ]]; then
         echo "source ~/.blogrc" >> ~/.bashrc
     fi
     source ~/.blogrc
