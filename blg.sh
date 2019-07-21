@@ -99,7 +99,7 @@ function preview()
     hexo clean
     hexo g
     termux-clipboard-set 'http://localhost:4000'
-    echo "本地服务器地址已经复制到截切版，请直接粘贴到浏览器打开！"
+    echo "本地服务器地址已复制到剪切版，请直接粘贴到浏览器打开！"
     echo "如需停止预览，请按 Ctrl + C ！"
     hexo s
 }
