@@ -82,4 +82,4 @@ deploy:
   type: git
   repo: git@github.com:vcheckzen/vcheckzen.github.com.git
   branch: master
-  message: regular update
+  message: "feat(article): write a new article"
