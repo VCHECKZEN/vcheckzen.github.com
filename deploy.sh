@@ -20,7 +20,7 @@ cp "$GITHUB_PAGES_BACKUP/robots.txt" $GITHUB_PAGES
 cp -r "$GITHUB_PAGES_BACKUP/customized" $GITHUB_PAGES
 git add -A
 git commit -m "feat(article): write a new article"
-git push -f
+git push -f -u origin master
 
 # 推送源文件
 git checkout source
@@ -30,6 +30,6 @@ cp -r $SOURCES ./
 cp -r $GITHUB_PAGES_BACKUP ./
 git add -A
 git commit -m "feat(article): write a new article"
-git push -f
+git push -f -u origin source
 
 # ~/.backup
