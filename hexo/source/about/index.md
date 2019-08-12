@@ -5,8 +5,6 @@ date: 2018-07-04 11:39:14
 comments: false
 ---
 
-# ABOUT
-
 ```JSON
 {
     "Nikename": "LOGI",
