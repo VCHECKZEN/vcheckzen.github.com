@@ -1,0 +1,113 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Transfer Query System</title>
+	<link rel="icon" href="//img.alicdn.com/tps/TB1HwXxLpXXXXchapXXXXXXXXXX-32-32.ico"  type="image/x-icon">
+	<script src="//vcheckzen.github.io/customized/layui/layui.js"></script>
+	<script src='//alinw.alicdn.com/platform/c/jquery/1.11.3/dist/jquery.min.js'></script>
+
+	<script>
+	function disableInput(obj) {
+		$(":input").each(function () {
+			$(this).attr("disabled", obj);
+		});
+		$(":button").each(function () {
+			$(this).attr("disabled", obj);
+		});
+	}
+
+	function transferQuery() {
+		var username = $("#username")[0];
+		var port = $("#port")[0];
+		var message = $("#message");
+		if (username.checkValidity() == false) {
+			message.val("ENMPTY USERNAME!");
+			return;
+		}
+		if (port.checkValidity() == false) {
+			message.val("ENMPTY PORT!");
+			return;
+		}
+		var r = /^\+?[1-9][0-9]*$/
+		if (!r.test($("#port").val())) {
+			message.val("INVALID PORT!")
+			return;
+		}
+		$.ajax({
+			type: 'POST',
+			dataType: "json",
+			url: "//vps.vcheckzen.top/userTransfer",
+			data: { "username": $("#username").val(), "port": $("#port").val() },
+			beforeSend: function() {
+				message.val('QUERYING...')
+				disableInput(true);
+			},
+			success: function (data) {
+				if (data.valid == 0) {
+					message.val('BAD USERNAME!')
+				} else if (data['username'] == 'NULL') {
+					message.val("USER NOT EXISTS!")
+				} else {
+					username = data['username']
+					used = data['used']
+					total = data['total']
+					message.val('USED/TOTAL: ' + used + '/' + total)
+					layui.use('layer', function() {
+						var layer= layui.layer
+// 						layer.msg('Hi, ' + username + '! Since Clean Happens on 22 Monthly, Use Your Transfer Properly.');
+// 						layer.tips('Hi, ' + username + '! Since Clean Happens on 22 Monthly, Use Your Transfer Properly.', '#message');
+						layer.tips('Hi, ' + username + '! Since Clean Happens on 22 Monthly, Use Your Transfer Properly.', '#message', {
+  							tips: 3,
+							time: 5000
+						});
+					});
+				}
+			},
+			error: function () {
+				message.val('CONNECTION FAILED!')
+			},
+			complete: function () {
+				disableInput(false)
+			}
+		});
+	}
+
+	layui.use('layer', function() {})
+</script>
+<style>
+.content {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	font-size:xx-large;
+	font-weight:bold;
+	width: 300px;
+}
+.row {
+	width: 100%;
+	height:40px;
+	font-size:xx-large;
+	font-weight:bold;
+	border:0px solid;
+	outline: none;
+}
+input:disabled {
+	background: #FFF;
+}
+</style>
+</head>
+<body>
+	<div id="content" class="content">
+		<form id="userform">
+			<table class="row">
+				<tr><td align="middle" style="">TRANSFER QUERY</td></tr>
+			</table>
+			<p><input class="row" style="font-size:large; color:#000;" id="message" value="WELCOME!" disabled="true"></input></p>
+			<p><input class="row" style="border-bottom: 2px solid" id="username" placeholder="USERNAME" required="true" autocomplete="on"></p>
+			<p><input class="row" style="border-bottom: 2px solid" id="port" type="number" placeholder="PORT" required="true" autocomplete="on"></p>
+			<p><button class="row" type="button" onclick="transferQuery()">QUERY</button></p>
+		</form>
+	</div>
+</body>
+</html>
