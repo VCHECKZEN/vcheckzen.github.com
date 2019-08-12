@@ -15,7 +15,3 @@ comments: false
     "Degree": "Bachelor"
 }
 ```
-
-# LINKS
-
-- [流光的马主人——高中生，编程爱好者](https://tiananda.github.io)

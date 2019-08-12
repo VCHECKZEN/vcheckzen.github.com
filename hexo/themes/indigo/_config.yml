@@ -128,13 +128,13 @@ gitalk: false
 
 # Valine Comment system. https://valine.js.org
 valine:
-  enable: false # 如果你想使用valine，请将值设置为 true
-  appId:  # your leancloud appId
-  appKey:  # your leancloud appKey
-  notify: false # Mail notify
-  verify: false # Verify code
+  enable: true # 如果你想使用valine，请将值设置为 true
+  appId: wURT7JOGjJwcD0pMcNcF2tk2-MdYXbMMI # your leancloud appId
+  appKey: okxjWUbxuKv3qYhjSxuXbMLN # your leancloud appKey
+  notify: true # Mail notify
+  verify: true # Verify code
   avatar: mm # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
-  placeholder: Just go go # Comment Box placeholder
+  placeholder: Leave a comment # Comment Box placeholder
   guest_info: nick,mail,link # Comment header info
   pageSize: 10 # comment list page size
 
@@ -156,16 +156,16 @@ since_year: 2015
 about: false
 
 # “不蒜子”访问量统计，详见 http://ibruce.info/2015/04/04/busuanzi/
-# visit_counter:
-#   site_uv: UNIQUE VISITORS：
-#   site_pv: PAGE VIEWS：
+visit_counter:
+  site_uv: UNIQUE VISITORS：
+  site_pv: PAGE VIEWS：
 
 # 动态定义title
 title_change:
-  normal:
+  normal: 
   # normal: (つェ⊂)咦!又好了!
   # leave: 死鬼去哪里了！
-  leave:
+  leave: 你快回来！
 
 # 设置为 true 发布后将使用 unpkg cdn 最新的主题样式
 # 如果想让你的自定义样式生效，把此项设为 false
