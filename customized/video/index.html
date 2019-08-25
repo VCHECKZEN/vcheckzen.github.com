@@ -41,13 +41,13 @@
         dplayer.style.height = 9 * dplayer.clientWidth / 16 + 'px';
 
         let searchParams = new URLSearchParams(location.search)
-        let movieName = searchParams.get('title');
+        let movieName = searchParams.get('name');
         let moviePost = searchParams.get('post');
 
         document.title = (movieName ? movieName + ' - ' : '') + document.title;
-        document.body.style.backgroundImage = 'url('
-            + moviePost ? moviePost : '//ae01.alicdn.com/kf/UTB832usPpfFXKJk43Otq6xIPFXa8.jpg'
-            + ')';
+        document.body.style.backgroundImage = 'url("'
+            + (moviePost ? moviePost : '//ae01.alicdn.com/kf/UTB832usPpfFXKJk43Otq6xIPFXa8.jpg')
+            + '")';
 
         new DPlayer({
             container: dplayer,
