@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>A LOGI PROJECT</title>
+    <meta name="referrer" content="no-referrer" />
+    <link href="//vcheckzen.github.io/customized/pay/static/img/icon/favicon.webp" rel="SHORTCUT ICON">
+    <link href="//s1.pstatp.com/cdn/expire-1-M/dplayer/1.19.0/DPlayer.min.css" rel="stylesheet">
+    <script src="//s1.pstatp.com/cdn/expire-1-M/dplayer/1.19.0/DPlayer.min.js"></script>
+    <script src="//s1.pstatp.com/cdn/expire-1-M/hls.js/0.11.0/hls.light.min.js"></script>
+
+    <style>
+        #box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 0px;
+        }
+
+        @media screen and (min-device-width: 600px) {
+            #dplayer {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-device-width: 599px) {
+            #dplayer {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="dplayer"></div>
+    </div>
+    <script>
+        let dplayer = document.getElementById('dplayer');
+        dplayer.style.height = 9 * dplayer.clientWidth / 16 + 'px';
+
+        let searchParams = new URLSearchParams(location.search)
+        let movieName = searchParams.get('title');
+        let moviePost = searchParams.get('post');
+
+        document.title = typeof movieName !== 'undefined' ?
+            movieName + ' - ' + document.title :
+            document.title;
+        let backgroundImageUrl = typeof moviePost !== 'undefined' ?
+            searchParams.get('post') :
+            '//ae01.alicdn.com/kf/UTB832usPpfFXKJk43Otq6xIPFXa8.jpg';
+        document.body.style.backgroundImage = 'url(' + backgroundImageUrl + ')';
+
+        new DPlayer({
+            container: dplayer,
+            screenshot: true,
+            video: {
+                url: searchParams.get('source')
+            }
+        });
+    </script>
+</body>
+
+</html>
