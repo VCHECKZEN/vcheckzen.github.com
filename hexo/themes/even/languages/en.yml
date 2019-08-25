@@ -1,0 +1,40 @@
+menu:
+  home: HOME
+  archive: ARCHIVE
+  category: CATEGORY
+  about: ABOUT
+
+footer:
+  powered: "POWERED BY %s"
+  theme: THEME
+
+posts:
+  prev: PREV
+  next: NEXT
+  prev_post: PREV
+  next_post: NEXT
+  toc: CONTENTS
+  readmore: READ MORE..
+  reward: 'REWARD'
+  visits: VIEWS
+
+copyright:
+  author: 'AUTHOR'
+  link: 'LINK'
+  license: 'LICENSE'
+
+counter:
+  archives:
+    zero: NO POSTS
+    one: 1 POST IN TOTAL
+    other: "%d POSTS IN TOTAL"
+
+  tagcloud:
+    zero: NO TAGS
+    one: 1 TAG IN TOTAL
+    other: "%d TAGS IN TOTAL"
+
+  categories:
+    zero: NO CATEGORIES
+    one: 1 CATEGORIE IN TOTALT
+    other: "%d CATEGORIES IN TOTAL"
