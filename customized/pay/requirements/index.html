@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-touch-fullscreen" content="YES">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>依赖生成</title>
@@ -45,7 +45,8 @@
             width: 95%;
         }
 
-        input, button {
+        input,
+        button {
             width: 100%;
             height: 70px;
             font-size: x-large;
@@ -108,12 +109,15 @@
     </style>
     <script>
         var setting = {
-            "wx": {"0": 280, "1": 293, "2": 519},
-            "ali": {"0": 198, "1": 529, "2": 593},
-            "qq": {"0": 195, "1": 455, "2": 329},
-            qrcodeUrl: {"qq": "", "wx": "", "ali": "", "site": "", "fav": ""},
+            "wx": { "0": 240, "1": 260, "2": 640 },
+            "ali": { "0": 160, "1": 490, "2": 670 },
+            "qq": { "0": 140, "1": 400, "2": 440 },
+            qrcodeUrl: { "qq": "", "wx": "", "ali": "", "site": "", "fav": "" },
         };
 
+        function getResult(img) {
+            return data;
+        }
         function geQrcode(fileName, value) {
             var virtualDiv = document.createElement("div");
             var qrcode = new QRCode(virtualDiv, {
@@ -167,7 +171,7 @@
         function completeAlert(elemId) {
             layui.use('layer', function () {
                 var layer = layui.layer;
-                layer.tips('请将信息补充完整!', '#' + elemId, {tips: [1, '#F00'], time: 5000});
+                layer.tips('请将信息补充完整!', '#' + elemId, { tips: [1, '#F00'], time: 5000 });
             });
         }
 
@@ -197,7 +201,11 @@
             geQrcode("wxpay.webp", setting.qrcodeUrl["wx"]);
             geQrcode("other.webp", setting.qrcodeUrl["site"]);
             downloadFile("favicon.webp", setting.qrcodeUrl["fav"]);
-            $("#ali").html("支付宝收款码链接：" + setting.qrcodeUrl["ali"].trim().toUpperCase());
+            $("#ali").text("支付宝收款码链接：");
+            let alipayLink = document.createElement('span');
+            alipayLink.style.fontSize = "50%";
+            alipayLink.innerHTML = setting.qrcodeUrl["ali"].trim().toUpperCase();
+            $("#ali").append(alipayLink);
         }
 
         function loadFile(file, filenameSpanId) {
@@ -223,7 +231,6 @@
                     image.src = this.result;
                     return;
                 }
-                ;
                 deQrcode(filenameSpanId, this.result);
             }
 
@@ -232,50 +239,50 @@
 </head>
 
 <body>
-<div id="content">
-    <h1 align="center">依赖生成</h1>
-    <div class="top">
-        <div class="right">
-            <img id="img" src="static/img/default.jpg"/>
+    <div id="content">
+        <h1 align="center">依赖生成</h1>
+        <div class="top">
+            <div class="right">
+                <img id="img" src="static/img/default.jpg" />
+            </div>
+            <div class="left">
+                <div class="line">
+                    <button type="button">上传</button>
+                    <input class="upload" type="file" accept="image/*" onchange="loadFile(this.files[0], 'qq')">
+                </div>
+                <span id="qq" value="QQ 收款码: ">QQ 收款码: </span>
+                <br>
+
+                <div class="line">
+                    <button type="button">上传</button>
+                    <input class="upload" type="file" accept="image/*" onchange="loadFile(this.files[0], 'wx')">
+                </div>
+                <span id="wx" value="微信收款码: ">微信收款码: </span>
+                <br>
+
+                <div class="line">
+                    <button type="button">上传</button>
+                    <input class="upload" type="file" accept="image/*" onchange="loadFile(this.files[0], 'ali')">
+                </div>
+                <span id="ali" value="支付宝收款码: ">支付宝收款码: </span>
+                <br>
+
+                <div class="line">
+                    <button type="button">上传</button>
+                    <input class="upload" type="file" accept="image/*" onchange="loadFile(this.files[0], 'fav')">
+                </div>
+                <span id="fav" value="用于 FAVICON 的图片: ">用于 FAVICON 的图片: </span>
+            </div>
         </div>
-        <div class="left">
-            <div class="line">
-                <button type="button">上传</button>
-                <input class="upload" type="file" accept="image/*" onchange="loadFile(this.files[0], 'qq')">
-            </div>
-            <span id="qq" value="QQ 收款码: ">QQ 收款码: </span>
-            <br>
-
-            <div class="line">
-                <button type="button">上传</button>
-                <input class="upload" type="file" accept="image/*" onchange="loadFile(this.files[0], 'wx')">
-            </div>
-            <span id="wx" value="微信收款码: ">微信收款码: </span>
-            <br>
-
-            <div class="line">
-                <button type="button">上传</button>
-                <input class="upload" type="file" accept="image/*" onchange="loadFile(this.files[0], 'ali')">
-            </div>
-            <span id="ali" value="支付宝收款码: ">支付宝收款码: </span>
-            <br>
-
-            <div class="line">
-                <button type="button">上传</button>
-                <input class="upload" type="file" accept="image/*" onchange="loadFile(this.files[0], 'fav')">
-            </div>
-            <span id="fav" value="用于 FAVICON 的图片: ">用于 FAVICON 的图片: </span>
-        </div>
+        <input style="border-bottom: 2px solid" id="url" placeholder="输入页面部署后的 URL" autocomplete="off">
+        <p>
+            <button style="width: 100%;" onclick="generate()">生成</button>
+        </p>
     </div>
-    <input style="border-bottom: 2px solid" id="url" placeholder="输入页面部署后的 URL" autocomplete="off">
-    <p>
-        <button style="width: 100%;" onclick="generate()">生成</button>
-    </p>
-</div>
-<script>
-    layui.use('layer', function () {
-    });
-</script>
+    <script>
+        layui.use('layer', function () {
+        });
+    </script>
 </body>
 
 </html>
