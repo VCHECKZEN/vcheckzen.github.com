@@ -53,8 +53,8 @@
                 }
             });
             $.ajax(window.config.apis[1]).done(function (response) {
-                if (response.code == 200 && response.data.code == 200) {
-                    window.config.server.host = btoa(response.data.ip);
+                if (response.code == 200) {
+                    window.config.server.host = btoa(response.ip);
                 }
             });
         });
