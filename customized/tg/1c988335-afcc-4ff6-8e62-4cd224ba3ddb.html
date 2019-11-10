@@ -46,12 +46,12 @@
         };
 
         $(document).ready(function () {
-            $.ajax(window.config.apis[0]).done(function (response) {
-                if (response.code == 200) {
-                    $('#tg-down').attr('href', response.data.downloadUrl);
-                    $('#tg-down').css('color', '#456f92')
-                }
-            });
+            // $.ajax(window.config.apis[0]).done(function (response) {
+            //     if (response.code == 200) {
+            //         $('#tg-down').attr('href', response.data.downloadUrl);
+            //         $('#tg-down').css('color', '#456f92')
+            //     }
+            // });
             $.ajax(window.config.apis[1]).done(function (response) {
                 if (response.code == 200) {
                     window.config.server.host = btoa(response.ip);
@@ -102,9 +102,13 @@
                 style="color: red;">点击本行</span>直接加入，否则继续阅读</a>
     </h4>
     <h4>1. 下载安装并打开<a id="tg-down"
-            href="https://service-ijuyxx34-1256127833.gz.apigw.tencentcs.com/release/api-cloud-lanzou/?url=https://www.lanzous.com/i44mvof&pwd=btrs&type=down">
+            href="https://logi.ml/fodi.html?path=/Proxy/Telegram">
             Telegram</a>
     </h4>
+    <!-- <h4>1. 下载安装并打开<a id="tg-down"
+            href="https://service-ijuyxx34-1256127833.gz.apigw.tencentcs.com/release/api-cloud-lanzou/?url=https://www.lanzous.com/i44mvof&pwd=btrs&type=down">
+            Telegram</a>
+    </h4> -->
     <!--<img src="https://s2.ax1x.com/2019/04/24/EViUd1.jpg">-->
     <img src="https://ws3.sinaimg.cn/large/005BYqpgly1g0udmuyyh1j30u01o04dz.jpg">
     <h4>2. 点击 “START MESSAGING” 即 “开始聊天” 进行注册</h4>
