@@ -24,19 +24,37 @@
         }
     </style>
     <script>
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://service-ijuyxx34-1256127833.gz.apigw.tencentcs.com/release/api-cloud-lanzou/?url=https://www.lanzous.com/i44mvof&pwd=btrs",
-            "method": "GET"
+        window.config = {
+            apis: [{
+                "async": true,
+                "crossDomain": true,
+                "url": "https://service-ijuyxx34-1256127833.gz.apigw.tencentcs.com/release/api-cloud-lanzou/?url=https://www.lanzous.com/i44mvof&pwd=btrs",
+                "method": "GET"
+            }, {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://service-6x993eys-1256127833.gz.apigw.tencentcs.com/release/api-dns",
+                "method": "GET"
+            }],
+            server: {
+                prefix: 'aHR0cHM6Ly8xMDI0dG9vbHMuY29tL2Jhc2U2NA==',
+                suffix: 'JnBvcnQ9MTAwMDImc2VjcmV0PWIwY2JjZWY1YTQ4NmQ5ZjM2NDcyYWNhN2Y4ZTExYTlk',
+                host: 'bjEubG9naS5tbA==',
+                port: 'MTAwMDI=',
+                secret: 'YjBjYmNlZjVhNDg2ZDlmMzY0NzJhY2E3ZjhlMTFhOWQ='
+            }
         };
 
         $(document).ready(function () {
-            $.ajax(settings).done(function (response) {
+            $.ajax(window.config.apis[0]).done(function (response) {
                 if (response.code == 200) {
                     $('#tg-down').attr('href', response.data.downloadUrl);
                     $('#tg-down').css('color', '#456f92')
-                    console.log($('#tg-down').attr('href'))
+                }
+            });
+            $.ajax(window.config.apis[1]).done(function (response) {
+                if (response.code == 200 && response.data.code == 200) {
+                    window.config.server.host = btoa(response.data.ip);
                 }
             });
         });
@@ -45,13 +63,13 @@
             var value = '';
             switch (id) {
                 case 'server':
-                    value = 'bjEubG9naS5tbA==';
+                    value = window.config.host;
                     break;
                 case 'port':
-                    value = 'MTAwMDI=';
+                    value = window.config.port;
                     break;
                 default:
-                    value = 'YjBjYmNlZjVhNDg2ZDlmMzY0NzJhY2E3ZjhlMTFhOWQ=';
+                    value = window.config.secret;
                     break;
             }
             var input = document.getElementById(id);
@@ -62,9 +80,9 @@
         }
 
         function connect() {
-            self.location = window.atob(
-                "dGc6Ly9wcm94eT9zZXJ2ZXI9bjEubG9naS5tbCZwb3J0PTEwMDAyJnNlY3JldD1iMGNiY2VmNWE0ODZkOWYzNjQ3MmFjYTdmOGUxMWE5ZA=="
-            );
+            self.location = window.atob(window.config.server.prefix)
+                + window.atob(window.config.server.host)
+                + window.atob(window.config.server.suffix);
         }
     </script>
 </head>
