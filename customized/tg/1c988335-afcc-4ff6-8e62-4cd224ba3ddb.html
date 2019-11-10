@@ -63,13 +63,13 @@
             var value = '';
             switch (id) {
                 case 'server':
-                    value = window.config.host;
+                    value = window.config.server.host;
                     break;
                 case 'port':
-                    value = window.config.port;
+                    value = window.config.server.port;
                     break;
                 default:
-                    value = window.config.secret;
+                    value = window.config.server.secret;
                     break;
             }
             var input = document.getElementById(id);
